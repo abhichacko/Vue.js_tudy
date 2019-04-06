@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="rev">
+        <h1>String reverse</h1>
+        <input type="text" v-model="str" >
+        <button v-on:click="reverseString(str)"> reverse</button>
+        <h1>{{newstr}}</h1>
+        <h2>{{rever}}</h2>
+    </div>
+    <script src="vue.js"></script>
+    <script>
+
+        var vm= new Vue(
+            {
+                el:"#rev",
+                data:{
+                    str:"",
+                    newstr:"",
+                },
+                methods:{
+                    reverseString: function(str){
+                       this.newstr=str.split("").reverse().join("")
+                    }
+                },
+                computed: {
+                    rever: function(){
+                    return this.str.split("").reverse().join("")  
+                    }
+                }
+
+                
+            }
+                
+        )
+    </script>
+</body>
+</html>
