@@ -8,10 +8,10 @@
 </head>
 <body>
 <div id="list">
-    <input type="text" v-model="message" v-on:keyup.enter="array.push(message)">
+    <input type="text" v-model="message" v-on:keyup.enter="addToList">
     <!-- <button v-on:click="array.push(message)"> add to list</button> -->
     <ul >
-        <li v-for="(i,index) in array">{{index}}.{{i}} <button v-on:click="array.splice(index,1)"> x</button>
+        <li v-for="(i,index) in list">{{index+1}}.{{i}} <button v-on:click="list.splice(index,1)"> x</button>
         </li>
 
     </ul>
@@ -23,10 +23,16 @@
             el:"#list",
             data:{
                 message:"d",
-                array:[
+                list:[
                            "a" ,
                            "b"
                         ]
+            },
+            methods: {
+                addToList:function() {
+                    this.list.push(this.message)
+                    this.message=""
+                }
             }
         }
     )
